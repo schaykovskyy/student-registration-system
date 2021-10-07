@@ -1,8 +1,3 @@
-
-/*
- * GridBagLayoutDemo.java requires no other files.
- */
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -11,18 +6,12 @@ public class GridBagLayoutDemo {
     final static boolean shouldWeightX = true;
     final static boolean RIGHT_TO_LEFT = false;
 
-    public static void addComponentsToPane(Container pane) {
-        if (RIGHT_TO_LEFT) {
-            pane.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        }
+    public static void buildCoursesLayout(Container pane) {
 
         JButton button;
         pane.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        if (shouldFill) {
-            // natural height, maximum width
-            // c.fill = GridBagConstraints.HORIZONTAL;
-        }
+ 
         DefaultListModel<String> l1 = new DefaultListModel<>();
         l1.addElement("Item1");
         l1.addElement("Item1");
@@ -36,121 +25,203 @@ public class GridBagLayoutDemo {
         l1.addElement("Item4");
         l1.addElement("Item2");
         l1.addElement("Item3");
-        l1.addElement("Item4");
-        l1.addElement("Item1");
-        l1.addElement("Item1");
-        l1.addElement("Item2");
-        l1.addElement("Item3");
-        l1.addElement("Item4");
-        l1.addElement("Item2");
-        l1.addElement("Item3");
-        l1.addElement("Item4");
-        l1.addElement("Item2");
-        l1.addElement("Item3");
-        l1.addElement("Item4");
-        l1.addElement("Item2");
-        l1.addElement("Item3");
-        l1.addElement("Item4");
+
         JList<String> list = new JList<>(l1);
-        //list.setBounds(100, 100, 75, 75);
+
         if (shouldWeightX) {
         c.weightx = 0.5;
         }
+        JLabel label = new JLabel("STUDENT COURSES");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.CENTER;
         c.gridwidth = 3;
         c.gridx = 0;
         c.gridy = 0;
+        pane.add(label,c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 1;
         pane.add(new JScrollPane(list),c);
-        // JList list = new JList(data); //data has type Object[]
-        // list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        // list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-        // list.setVisibleRowCount(-1);
-        // ...
-        // JScrollPane listScroller = new JScrollPane(list);
-        // listScroller.setPreferredSize(new Dimension(250, 80));
-        // //1. Create the frame.
-        // JFrame frame = new JFrame("FrameDemo");
 
-        // //2. Optional: What happens when the frame closes?
-        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // //3. Create components and put them in the frame.
-        // //...create emptyLabel...
-        // frame.getContentPane().add("Test", BorderLayout.CENTER);
-
-        // //4. Size the frame.
-        // frame.pack();
-
-        // //5. Show it.
-        // frame.setVisible(true);
-
-        // button = new JButton("Button 1");
-        // if (shouldWeightX) {
-        // c.weightx = 0.5;
-        // }
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.gridx = 0;
-        // c.gridy = 0;
-        // pane.add(button, c);
-
-        // button = new JButton("Button 2");
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.weightx = 0.5;
-        // c.gridx = 1;
-        // c.gridy = 0;
-        // pane.add(button, c);
-
-        // button = new JButton("Button 3");
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.weightx = 0.5;
-        // c.gridx = 2;
-        // c.gridy = 0;
-        // pane.add(button, c);
-
-        // button = new JButton("Long-Named Button 4");
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.ipady = 40; // make this component tall
-        // c.weightx = 0.5;
-        // c.gridwidth = 3;
-        // c.gridx = 0;
-        // c.gridy = 1;
-        // pane.add(button, c);
-        button = new JButton("+");
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.ipady = 0; // reset to default
-        // c.weighty = 1.0; // request any extra vertical space
-        // c.anchor = GridBagConstraints.LAST_LINE_START; // bottom of space
-        // c.insets = new Insets(0, 0, 0, 0); // top padding
+        button = new JButton("Delete Course");
         c.gridx = 0; // aligned with button 2
         c.gridwidth = 1;
-        // c.gridwidth = 3; // 2 columns wide
-        c.gridy = 1; // third row
+        c.gridy = 2; // third row
+        pane.add(button, c);
+    }
+    public static void buildCatalogLayout(Container pane) {
+
+        JButton button;
+        pane.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+ 
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+        l1.addElement("Item4");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+        l1.addElement("Item4");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+
+        JList<String> list = new JList<>(l1);
+
+        if (shouldWeightX) {
+        c.weightx = 0.5;
+        }
+        JLabel label = new JLabel("CATALOG");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 0;
+        pane.add(label,c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 1;
+        pane.add(new JScrollPane(list),c);
+
+        button = new JButton("Search");
+        c.gridx = 0; // aligned with button 2
+        c.gridwidth = 1;
+        c.gridy = 2; // third row
+        pane.add(button, c);
+
+        JTextField searchField = new JTextField("course name");
+        c.gridx = 1; // aligned with button 2
+        c.gridwidth = 1;
+        c.gridy = 2; // third row
+        pane.add(searchField,c);
+    }
+    public static void buildStudentLayout(Container pane) {
+
+        JButton button;
+        pane.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+ 
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        l1.addElement("JOE");
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+        l1.addElement("Item4");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+        l1.addElement("Item4");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+
+        JList<String> list = new JList<>(l1);
+
+        if (shouldWeightX) {
+        c.weightx = 0.5;
+        }
+        JLabel label = new JLabel("STUDENT");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 0;
+        pane.add(label,c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 1;
+        pane.add(new JScrollPane(list),c);
+
+        button = new JButton("+");
+        c.gridx = 0; // aligned with button 2
+        c.gridwidth = 1;
+        c.gridy = 2; // third row
         pane.add(button, c);
 
         button = new JButton("-");
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.ipady = 0; // reset to default
-        // c.weighty = 1.0; // request any extra vertical space
-        // c.anchor = GridBagConstraints.LAST_LINE_END; // bottom of space
-        // c.insets = new Insets(0, 0, 0, 0); // top padding
         c.gridx = 1; // aligned with button 2
-        // c.gridwidth = 3; // 2 columns wide
-        c.gridy = 1; // third row
+        c.gridy = 2; // third row
+        pane.add(button, c);
+    }
+    public static void buildSectionLayout(Container pane) {
+
+        JButton button;
+        pane.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+ 
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item1");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+        l1.addElement("Item4");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+        l1.addElement("Item4");
+        l1.addElement("Item2");
+        l1.addElement("Item3");
+
+        JList<String> list = new JList<>(l1);
+
+        if (shouldWeightX) {
+        c.weightx = 0.5;
+        }
+        JLabel label = new JLabel("SECTIONS");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 0;
+        pane.add(label,c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 1;
+        pane.add(new JScrollPane(list),c);
+
+        button = new JButton("Add Course");
+        c.gridx = 0; // aligned with button 2
+        c.gridwidth = 1;
+        c.gridy = 2; // third row
         pane.add(button, c);
     }
 
-    /**
-     * Create the GUI and show it. For thread safety, this method should be invoked
-     * from the event-dispatching thread.
-     */
     private static void createAndShowGUI() {
         // Create and set up the window.
-        JFrame frame = new JFrame("GridBagLayoutDemo");
+        JFrame frame = new JFrame("Student Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Set up the content pane.
-        addComponentsToPane(frame.getContentPane());
+        JPanel panel1 = new JPanel();
+        JPanel panel2 = new JPanel();
+        JPanel panel3 = new JPanel();
+        JPanel panel4 = new JPanel();
+
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
+        buildStudentLayout(panel1);
+        buildCoursesLayout(panel2);
+        buildCatalogLayout(panel3);
+        buildSectionLayout(panel4);
+        frame.add(panel1);
+        frame.add(panel2);
+        frame.add(panel3);
+        frame.add(panel4);
 
         // Display the window.
         frame.pack();
@@ -158,12 +229,7 @@ public class GridBagLayoutDemo {
     }
 
     public static void main(String[] args) {
-        // Schedule a job for the event-dispatching thread:
         // creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        createAndShowGUI();
     }
 }
