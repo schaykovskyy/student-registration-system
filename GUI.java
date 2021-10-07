@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-
+import javax.swing.event.ListSelectionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,23 +8,25 @@ import java.awt.event.ActionListener;
 public class GUI extends JFrame{
 // student
     public JLabel studentTitle = new JLabel("STUDENT");
-    public JList<String> studentsList = new JList<>();
+    // public DefaultListModel<Student> defModel = new DefaultListModel<Student>(); 
+    // public JList<Student> studentsList = new JList<Student>(defModel);
+    public JList<Student> studentsList = new JList<Student>();
     public JButton addStudentBtn = new JButton("+");
     public JButton removeStudentBtn = new JButton("-");
 
 //Student courses
     public JLabel enrolledCoursesTitle = new JLabel("Enrolled Courses");
+    public JList<Course> enrolledCoursesList= new JList<Course>();
     public JButton removeEnrolledCourseBtn= new JButton("Remove Course");
-    public JList<String> enrolledCoursesList= new JList<>();
 //Catalog
     public JLabel catalogTitle= new JLabel("Catalog");
+    public JList<String> catalogList= new JList<>();
     public JButton searchBtn= new JButton("Search");
     public JTextField searchField= new JTextField("search for course");
-    public JList<String> catalogList= new JList<>();
 // Section
     public JLabel sectionTitle= new JLabel("Sections");
-    public JButton addCourseBtn= new JButton("Add course");
     public JList<String> sectionList= new JList<>();
+    public JButton addCourseBtn= new JButton("Add course");
 
     public void buildStudentLayout(Container pane) {
 
@@ -137,9 +139,13 @@ public class GUI extends JFrame{
     }
 
     
-    public void addActionListener(ActionListener addStudentListener, ActionListener removeStudentListener){
+    public void addActionListenerCourse(ActionListener removeCourseListener){
+        removeEnrolledCourseBtn.addActionListener(removeCourseListener);
+    }
+    public void addActionListenerStudent(ActionListener addStudentListener, ActionListener removeStudentListener,ListSelectionListener studentSelectListener){
         addStudentBtn.addActionListener(addStudentListener);
         removeStudentBtn.addActionListener(removeStudentListener);
+        studentsList.addListSelectionListener(studentSelectListener);
     }
 
     public GUI() {
