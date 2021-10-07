@@ -2,6 +2,9 @@ import java.awt.*;
 import javax.swing.*;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class GUI extends JFrame{
 // student
     public JLabel studentTitle = new JLabel("STUDENT");
@@ -133,6 +136,12 @@ public class GUI extends JFrame{
         pane.add(addCourseBtn, c);
     }
 
+    
+    public void addActionListener(ActionListener addStudentListener, ActionListener removeStudentListener){
+        addStudentBtn.addActionListener(addStudentListener);
+        removeStudentBtn.addActionListener(removeStudentListener);
+    }
+
     public GUI() {
         // Create and set up the window.
        // JFrame frame = new JFrame("Student Registration");
@@ -158,7 +167,8 @@ public class GUI extends JFrame{
 
         // Display the window.
         pack();
-        setVisible(true);
+        setVisible(true) ;
+        // this.addActionListener(this);
     }
 
 }
