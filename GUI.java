@@ -20,13 +20,14 @@ public class GUI extends JFrame{
     public JButton removeEnrolledCourseBtn= new JButton("Remove Course");
 //Catalog
     public JLabel catalogTitle= new JLabel("Catalog");
-    public JList<String> catalogList= new JList<>();
+    public JList<Course> catalogList= new JList<Course>();
     public JButton searchBtn= new JButton("Search");
-    public JTextField searchField= new JTextField("search for course");
+    public JTextField searchField= new JTextField("enter course name");
 // Section
-    public JLabel sectionTitle= new JLabel("Sections");
-    public JList<String> sectionList= new JList<>();
+    public JLabel sectionTitle= new JLabel("Offering");
+    public JList<Offering> sectionList= new JList<Offering>();
     public JButton addCourseBtn= new JButton("Add course");
+    public JButton quitBtn = new JButton("QUIT!");
 
     public void buildStudentLayout(Container pane) {
 
@@ -135,17 +136,35 @@ public class GUI extends JFrame{
         c.gridx = 0; // aligned with button 2
         c.gridwidth = 1;
         c.gridy = 2; // third row
+        c.gridx = 0;
         pane.add(addCourseBtn, c);
+        c.gridx = 1;
+
+        pane.add(quitBtn,c);
+        quitBtn.addActionListener(new ActionListener() { 
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0) ;
+            }
+        });
     }
 
-    
-    public void addActionListenerCourse(ActionListener removeCourseListener){
-        removeEnrolledCourseBtn.addActionListener(removeCourseListener);
-    }
     public void addActionListenerStudent(ActionListener addStudentListener, ActionListener removeStudentListener,ListSelectionListener studentSelectListener){
         addStudentBtn.addActionListener(addStudentListener);
         removeStudentBtn.addActionListener(removeStudentListener);
         studentsList.addListSelectionListener(studentSelectListener);
+    }
+    public void addActionListenerCourse(ActionListener removeCourseListener, ListSelectionListener enrollSelectListener){
+        removeEnrolledCourseBtn.addActionListener(removeCourseListener);
+        enrolledCoursesList.addListSelectionListener(enrollSelectListener);
+    }
+    public void addActionListenerCatalog(ActionListener search, ListSelectionListener catalogSelectListener){
+        searchBtn.addActionListener(search);
+        catalogList.addListSelectionListener(catalogSelectListener);
+    }
+
+    public void addActionListenerOffering(ActionListener addCourseListener, ListSelectionListener OfferingSelectListener){
+        addCourseBtn.addActionListener(addCourseListener);
+        sectionList.addListSelectionListener(OfferingSelectListener);
     }
 
     public GUI() {

@@ -11,36 +11,36 @@ public class Student{
         setRegList(new ArrayList <Registration>());
     }
 
-    public void registerForCourse(CourseCat cat, String courseName, int courseNumber, int secNumber){
-        Course myCourse = cat.searchCat(courseName, courseNumber);
-        if (myCourse == null){
-            return;
-        }
-        Offering theOffering = myCourse.getOfferingList().get(secNumber -1);
-        Registration reg = new Registration();
-        //if student already registered
-        for(Registration r: regList){
-            if(r.getTheOffering().getTheCourse()==theOffering.getTheCourse()){
-                System.out.println("Student already regeistered in this course");
-                return;
-            }
-        }
-        reg.register(this, theOffering);
-    }
-    public void deregisterCourse(CourseCat cat, String courseName, int courseNumber,int secNumber){
-        Course courseToRemove = cat.searchCat(courseName, courseNumber);
-        if(courseToRemove == null){
-            return;
-        }
-        Offering offeringToRemove = courseToRemove.getOfferingList().get(secNumber-1);
-        Registration registrationToRemove = new Registration();
-        for (Registration r: regList){
-            if(r.getTheOffering()==offeringToRemove){
-                registrationToRemove = r;
-            }
-        }
-        regList.get(regList.indexOf(registrationToRemove)).deregister(this, offeringToRemove);
-    }
+    // public void registerForCourse(CourseCat cat, String courseName, int courseNumber, int secNumber){
+    //     Course myCourse = cat.searchCat(courseName, courseNumber);
+    //     if (myCourse == null){
+    //         return;
+    //     }
+    //     Offering theOffering = myCourse.getOfferingList().get(secNumber -1);
+    //     Registration reg = new Registration();
+    //     //if student already registered
+    //     for(Registration r: regList){
+    //         if(r.getTheOffering().getTheCourse()==theOffering.getTheCourse()){
+    //             System.out.println("Student already regeistered in this course");
+    //             return;
+    //         }
+    //     }
+    //     reg.register(this, theOffering);
+    // }
+    // public void deregisterCourse(CourseCat cat, String courseName, int courseNumber,int secNumber){
+    //     Course courseToRemove = cat.searchCat(courseName, courseNumber);
+    //     if(courseToRemove == null){
+    //         return;
+    //     }
+    //     Offering offeringToRemove = courseToRemove.getOfferingList().get(secNumber-1);
+    //     Registration registrationToRemove = new Registration();
+    //     for (Registration r: regList){
+    //         if(r.getTheOffering()==offeringToRemove){
+    //             registrationToRemove = r;
+    //         }
+    //     }
+    //     regList.get(regList.indexOf(registrationToRemove)).deregister(this, offeringToRemove);
+    // }
 
     public void addRegistration(Registration reg){
         regList.add(reg);
