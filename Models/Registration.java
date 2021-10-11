@@ -1,3 +1,5 @@
+package Models;
+
 public class Registration {
     private Student theStudent;
     private Offering theOffering;
@@ -27,11 +29,11 @@ public class Registration {
             System.out.println("Successfully Enrolled.");
         }
     }
-    public void deregister(Student theStudent, Offering theOffering){
-        theOffering.removeRegistration(this);
-        theStudent.removeRegistration(this);
-        System.out.println("Course Dropped.");
-    }
+    // public void deregister(Student theStudent, Offering theOffering){
+    //     theOffering.removeRegistration(this);
+    //     theStudent.removeRegistration(this);
+    //     System.out.println("Course Dropped.");
+    // }
 
     //getters and setters
     public Student getTheStudent() {

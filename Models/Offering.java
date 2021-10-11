@@ -1,3 +1,5 @@
+package Models;
+
 import java.util.ArrayList;
 public class Offering {
     private int sectionNum;
@@ -14,10 +16,6 @@ public class Offering {
 
     public void addRegistration(Registration reg){
         studentList.add(reg);
-    }
-
-    public void removeRegistration(Registration reg){
-        studentList.remove(reg);
     }
 
     //getters and setters

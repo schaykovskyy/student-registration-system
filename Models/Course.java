@@ -1,3 +1,4 @@
+package Models;
 import java.util.ArrayList;
 public class Course{
     private String courseName;
@@ -12,13 +13,13 @@ public class Course{
         offeringList = new ArrayList<Offering>();
     }
 
-    public void addOffering(Offering theOffering){
-        offeringList.add(theOffering);
-    }
+    // public void addOffering(Offering theOffering){
+    //     offeringList.add(theOffering);
+    // }
 
-    public void removeOffering(Offering theOffering){
-        offeringList.remove(theOffering);
-    }
+    // public void removeOffering(Offering theOffering){
+    //     offeringList.remove(theOffering);
+    // }
 
     //toString funciton to print both name and number
     @Override
