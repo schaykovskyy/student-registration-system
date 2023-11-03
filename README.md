@@ -1,23 +1,35 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=464895&assignment_repo_type=GroupAssignmentRepo)
-﻿**ENSF 607 – Advanced Software Development and Architecture**                                        
+# Student Registration System with MVC
 
-**Assignment 3** 
+Student registration system developed as an project for the university course. 
 
-This assignment can be done individually or in pair (i.e., groups of 2)
+## Objective
 
-Submission Information and Due Dates
+The objective of this project was to:
 
-- Students will demo their project to their TA **during the lab on Friday October 8th** – Note: Both group members must be present during the demo
-- Students must submit their lab to the Git repository by **11:59 on Monday October 8th**
+- Develop student registration system application that follows the Model-View-Controller (MVC) architectural pattern, based on given requirements.
+- Develop a GUI for the application.
+- Provide UML diagrams to illustrate the design of the system.
 
-**Project Objectives:**
+## Project Structure
 
-In lab 1 you were tasked by creating a student registration system based on the UML diagram given to you in the lecture material. In this assignment, you will modify the design of your application to MVC. Your final submission should have the same functionality of the application you developed in lab 1. However, for this assignment you must have a GUI instead of a console-based application. 
+The project is organized into three packages to adhere to the MVC pattern:
 
-The deliverables for this assignment include:
+1. **Model**: This package contains the core logic and data structures of the student registration system. It represents the application's data and business logic. Any changes to data and application state occur in this package.
 
-- Modified UML diagram(s) to show case your design. You may choose to have more than one UML diagram to show a meaningful high-level and low-level view of the system. UML package diagram and class diagram are appropriate to use.
-- Your Java application which must be delivered in 3 packages:
-  - Model
-  - View
-  - Controller
+2. **View**: The View package is responsible for the graphical user interface. It is the presentation layer that interacts with the user, displaying information and receiving user input. This package is where the GUI components are implemented.
+
+3. **Controller**: The Controller package acts as an intermediary between the Model and View. It handles user input from the View, processes it, and updates the Model accordingly. It also manages the flow of data between the Model and the View.
+
+## Demo
+
+Here's a demonstrating how the Student Registration System:
+
+![output](screenshots/output.gif)
+
+## Getting Started
+
+To run and test the Student Registration System with MVC, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Open the project in your preferred Java IDE.
+3. Build and run the project.
